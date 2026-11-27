@@ -1,0 +1,47 @@
+<section class="favorites" aria-live="polite">
+  <div class="section-heading">
+    <h2>Favorite cities</h2>
+    <span>{{ favorites.length }}</span>
+  </div>
+
+  <p *ngIf="loading">Loading favorites...</p>
+  <p *ngIf="error" class="error" role="alert">{{ error }}</p>
+  <p *ngIf="!loading && !error && !favorites.length" class="empty">No favorite cities yet.</p>
+
+  <ul *ngIf="favorites.length" class="favorite-list">
+    <li *ngFor="let favorite of favorites">
+      <button class="city-link" type="button" (click)="selectLocation(favorite)">
+        {{ favorite.city }}<small *ngIf="favorite.country">, {{ favorite.country }}</small>
+      </button>
+      <button type="button" (click)="removeFavorite(favorite)" [disabled]="removingId === favorite._id">
+        {{ removingId === favorite._id ? 'Removing...' : 'Remove' }}
+      </button>
+    </li>
+  </ul>
+
+  <div class="section-heading history-heading" id="history">
+    <h2>Recent searches</h2>
+    <div class="history-actions">
+      <span>{{ history.length }}</span>
+      <button
+        *ngIf="history.length"
+        type="button"
+        (click)="clearHistory()"
+        [disabled]="historyClearing">
+        {{ historyClearing ? 'Clearing...' : 'Clear history' }}
+      </button>
+    </div>
+  </div>
+  <p *ngIf="historyLoading">Loading recent searches...</p>
+  <p *ngIf="historyError" class="error" role="alert">{{ historyError }}</p>
+  <p *ngIf="historyMessage" class="success" role="status">{{ historyMessage }}</p>
+  <p *ngIf="!historyLoading && !historyError && !history.length" class="empty">No recent searches yet.</p>
+  <ul *ngIf="history.length" class="favorite-list">
+    <li *ngFor="let entry of history">
+      <button class="city-link" type="button" (click)="selectLocation(entry)">
+        {{ entry.city }}<small *ngIf="entry.country">, {{ entry.country }}</small>
+      </button>
+      <time [attr.datetime]="entry.createdAt">{{ entry.createdAt | date: 'MMM d, h:mm a' }}</time>
+    </li>
+  </ul>
+</section>

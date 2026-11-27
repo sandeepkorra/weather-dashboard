@@ -1,0 +1,59 @@
+<main class="dashboard" id="top">
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Weather Explorer home">
+      <span class="brand-mark" aria-hidden="true">W</span>
+      <span>weather<span class="brand-accent">explorer</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#weather">Overview</a>
+      <a href="#forecast">Forecast</a>
+      <a href="#favorites">Saved places</a>
+    </nav>
+    <div class="topbar-actions">
+      <span class="live-status"><span aria-hidden="true"></span> Live conditions</span>
+      <button class="logout-button" type="button" (click)="logout()">Sign out</button>
+    </div>
+  </header>
+
+  <section class="dashboard-header" id="weather">
+    <div>
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> WEATHER, IN ITS ELEMENT</p>
+      <h1>Find your forecast.<br /><span>Feel the moment.</span></h1>
+      <p class="hero-copy">A clearer view of the skies, wherever you’re headed.</p>
+    </div>
+    <div class="hero-note">
+      <span class="hero-note-icon" aria-hidden="true">✦</span>
+      <span>Real-time conditions<br /><strong>Made for your day</strong></span>
+    </div>
+  </section>
+
+  <app-search-bar (citySearch)="onLocationSearch($event)"></app-search-bar>
+
+  <ng-container *ngIf="selectedLocation; else emptyState">
+    <div class="weather-grid">
+      <div class="current-column">
+        <app-current-weather [location]="selectedLocation" (weatherLoaded)="onWeatherLoaded($event)"></app-current-weather>
+        <div class="favorite-action card">
+          <button type="button" (click)="saveFavorite()" [disabled]="savingFavorite">
+            {{ savingFavorite ? 'Saving...' : 'Save to favorites' }}
+          </button>
+          <p *ngIf="favoriteMessage" class="success" role="status">{{ favoriteMessage }}</p>
+          <p *ngIf="favoriteError" class="error" role="alert">{{ favoriteError }}</p>
+          <p *ngIf="historyError" class="error" role="alert">{{ historyError }}</p>
+        </div>
+      </div>
+      <app-forecast id="forecast" [location]="selectedLocation"></app-forecast>
+    </div>
+  </ng-container>
+
+  <app-favorites id="favorites" (citySelected)="onLocationSearch($event)"></app-favorites>
+
+  <ng-template #emptyState>
+    <section class="empty-state" id="forecast">
+      <span class="empty-orbit" aria-hidden="true">☼</span>
+      <p class="empty-kicker">YOUR NEXT DESTINATION</p>
+      <h2>The sky is yours to explore.</h2>
+      <p>Search a city, enter an Indian PIN code, or use your current location.</p>
+    </section>
+  </ng-template>
+</main>

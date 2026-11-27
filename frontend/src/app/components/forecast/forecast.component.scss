@@ -1,0 +1,26 @@
+.forecast { min-width: 0; padding: clamp(1.1rem, 2.7vw, 1.65rem); overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(17, 38, 63, 0.78), rgba(7, 19, 36, 0.8)); }
+.forecast h2 { margin: 0 0 var(--space-4); color: #e5f1fc; font-size: 1.18rem; letter-spacing: -0.03em; }
+.hourly-forecast { margin-bottom: var(--space-5); }
+.hourly-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.35rem 1rem; margin-bottom: var(--space-2); }
+.hourly-heading h3 { margin: 0; color: #dceaf7; font-size: 0.92rem; }
+.hourly-heading span { color: var(--color-subtle); font-size: 0.72rem; }
+.hourly-list { display: flex; gap: var(--space-2); overflow-x: auto; padding-bottom: 0.4rem; }
+.hourly-item { display: grid; flex: 0 0 5.5rem; justify-items: center; gap: 0.2rem; padding: 0.6rem 0.4rem; border: 1px solid rgba(157, 190, 225, 0.1); border-radius: 0.85rem; background: rgba(4, 15, 29, 0.34); text-align: center; }
+.hourly-item time, .hourly-item p { color: var(--color-muted); font-size: 0.7rem; }
+.hourly-item img { width: 2.5rem; height: 2.5rem; }
+.hourly-item strong { color: #eaf6ff; font-size: 0.88rem; }
+.hourly-item p { margin: 0; font-size: 0.64rem; }
+.chart { position: relative; height: 14rem; margin-bottom: var(--space-5); }
+.forecast-skeleton { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-3); height: 14rem; }
+.forecast-skeleton .skeleton { height: 100%; }
+.forecast-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: var(--space-3); }
+.forecast-day { padding: var(--space-3); border: 1px solid rgba(157, 190, 225, 0.12); border-radius: 1rem; background: linear-gradient(150deg, rgba(25, 50, 77, 0.68), rgba(8, 22, 40, 0.6)); text-align: center; transition: transform 180ms ease, border-color 180ms ease, background 180ms ease; }
+.forecast-day:hover { transform: translateY(-3px); border-color: rgba(85, 232, 242, 0.3); background: rgba(22, 52, 78, 0.78); }
+.forecast-day h3 { margin: 0; color: #9eb4ca; font-size: 0.84rem; font-weight: 600; }
+.forecast-day img { width: 4rem; height: 4rem; filter: drop-shadow(0 0 0.75rem rgba(99, 224, 245, 0.15)); }
+.forecast-day .condition { margin: 0; color: #eaf6ff; font-size: 0.86rem; font-weight: 650; }
+.temperature-range { display: flex; justify-content: center; gap: 0.7rem; margin-top: 0.55rem; color: var(--color-muted); font-size: 0.75rem; }
+.temperature-range strong { color: #eaf6ff; font-size: 0.92rem; }
+.forecast-day .unit { margin: 0; color: var(--color-muted); font-size: 0.72rem; }
+.forecast-day .description { margin: 0.3rem 0 0; color: var(--color-muted); font-size: 0.72rem; }
+.error { color: var(--color-danger); }

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="summerSky" x1="0" y1="0" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f6bd78"/>
+      <stop offset="1" stop-color="#e98761"/>
+    </linearGradient>
+    <linearGradient id="rainSky" x1="800" y1="0" x2="800" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#324f70"/>
+      <stop offset="1" stop-color="#6f9c9c"/>
+    </linearGradient>
+    <linearGradient id="retreatSky" x1="0" y1="450" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#73adbb"/>
+      <stop offset="1" stop-color="#e8b879"/>
+    </linearGradient>
+    <linearGradient id="winterSky" x1="800" y1="450" x2="800" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9dbbc7"/>
+      <stop offset="1" stop-color="#e3e3d1"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="700" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#73aaa0"/>
+      <stop offset="1" stop-color="#315f66"/>
+    </linearGradient>
+    <linearGradient id="labelShade" x1="0" y1="290" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102c3c" stop-opacity="0"/>
+      <stop offset="1" stop-color="#102c3c" stop-opacity=".72"/>
+    </linearGradient>
+    <clipPath id="summerClip"><rect x="0" y="0" width="790" height="440" rx="28"/></clipPath>
+    <clipPath id="rainClip"><rect x="810" y="0" width="790" height="440" rx="28"/></clipPath>
+    <clipPath id="retreatClip"><rect x="0" y="460" width="790" height="440" rx="28"/></clipPath>
+    <clipPath id="winterClip"><rect x="810" y="460" width="790" height="440" rx="28"/></clipPath>
+    <filter id="softBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <g clip-path="url(#summerClip)">
+    <path fill="url(#summerSky)" d="M0 0h790v440H0z"/>
+    <circle cx="605" cy="112" r="57" fill="#ffe5a6"/>
+    <circle cx="605" cy="112" r="83" fill="#ffe5a6" fill-opacity=".26" filter="url(#softBlur)"/>
+    <path d="M0 282 145 185l105 80 123-135 174 167 119-108 124 102v149H0z" fill="#b46f59" fill-opacity=".72"/>
+    <path d="m0 325 172-92 112 83 145-115 127 120 108-76 126 78v117H0z" fill="#784f4d" fill-opacity=".82"/>
+    <path d="M0 368q126-70 244-14t248 6q145-82 298-12v92H0z" fill="#4a604c"/>
+    <path d="M78 310v-96m0 18-30-28m30 43 34-32m-34 51-38-22m38 42 39-27" stroke="#304b42" stroke-width="12" stroke-linecap="round"/>
+    <path d="M238 355v-77m0 15-24-20m24 33 28-23" stroke="#354d43" stroke-width="9" stroke-linecap="round"/>
+    <rect y="292" width="790" height="148" fill="url(#labelShade)"/>
+    <text x="48" y="365" fill="#fff5e6" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">PRE-MONSOON</text>
+    <text x="48" y="402" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="600">Heat over the Deccan</text>
+  </g>
+
+  <g clip-path="url(#rainClip)">
+    <path fill="url(#rainSky)" d="M810 0h790v440H810z"/>
+    <path d="M810 272 945 184l112 61 137-138 148 140 110-88 148 105v176H810z" fill="#567c77"/>
+    <path d="M810 316q145-92 281-20 142-106 280-20 116-62 229 9v155H810z" fill="#315f56"/>
+    <path d="M1026 117c0-29 24-52 54-52 16-37 68-43 92-10 39-7 69 22 66 58 22 7 36 25 36 46h-278c0-21 12-36 30-42z" fill="#31475b"/>
+    <path d="M1050 174v74m43-74v98m44-98v70m44-70v103m45-103v77m-238-45v80m278-80v91" stroke="#b9e5e8" stroke-opacity=".72" stroke-width="5" stroke-linecap="round"/>
+    <path d="M810 355q145-28 280 10t278-4q118-44 232-6v85H810z" fill="#254f52"/>
+    <path d="M1248 352v-87m0 20-34-30m34 46 39-32m-39 51-43-26m43 52 43-30" stroke="#28594c" stroke-width="11" stroke-linecap="round"/>
+    <rect x="810" y="292" width="790" height="148" fill="url(#labelShade)"/>
+    <text x="858" y="365" fill="#e1f4ef" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">SOUTHWEST MONSOON</text>
+    <text x="858" y="402" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="600">Rain over the Western Ghats</text>
+  </g>
+
+  <g clip-path="url(#retreatClip)">
+    <path fill="url(#retreatSky)" d="M0 460h790v440H0z"/>
+    <circle cx="587" cy="568" r="43" fill="#ffe7ad" fill-opacity=".9"/>
+    <path d="M0 680q135-129 275-44 128-121 269-37 118-73 246-4v126H0z" fill="#567f6d"/>
+    <path d="M0 738q146-97 279-28 126-102 269-20 115-62 242-12v96H0z" fill="#386b59"/>
+    <path d="M0 776q197-35 395 0t395 0v124H0z" fill="url(#water)"/>
+    <path d="M0 800q187 27 391 0t399 0M0 842q187 22 391 0t399 0" stroke="#b6d6be" stroke-opacity=".52" stroke-width="4"/>
+    <path d="M103 689v-86m0 21-26-26m26 42 31-31m-31 50-32-20m32 42 32-27" stroke="#305747" stroke-width="10" stroke-linecap="round"/>
+    <path d="M206 713v-64m0 18-21-19m21 31 24-22" stroke="#385d48" stroke-width="8" stroke-linecap="round"/>
+    <rect y="752" width="790" height="148" fill="url(#labelShade)"/>
+    <text x="48" y="823" fill="#e5f6e8" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">RETREATING RAINS</text>
+    <text x="48" y="860" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="600">Paddy fields after the rain</text>
+  </g>
+
+  <g clip-path="url(#winterClip)">
+    <path fill="url(#winterSky)" d="M810 460h790v440H810z"/>
+    <ellipse cx="1362" cy="590" rx="280" ry="70" fill="#fff" fill-opacity=".32" filter="url(#softBlur)"/>
+    <path d="M810 710 962 586l98 82 128-139 125 141 111-100 176 142v188H810z" fill="#748d82"/>
+    <path d="M810 763q139-80 279-17 132-106 261-34 120-80 250 1v187H810z" fill="#526f61"/>
+    <path d="M810 804q147-61 289-7 142-79 286-15 110-45 215-3v121H810z" fill="#3c654f"/>
+    <path d="M1041 765q96-46 191 0m-158 34q79-38 159 0m115-64q83-39 163 0m-132 39q73-33 145 0" stroke="#a8bd87" stroke-opacity=".72" stroke-width="7" stroke-linecap="round"/>
+    <path d="M810 850q202-20 393 0t397 0v50H810z" fill="#7e9b91"/>
+    <rect x="810" y="752" width="790" height="148" fill="url(#labelShade)"/>
+    <text x="858" y="823" fill="#e5f3f5" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="3">COOL-SEASON MIST</text>
+    <text x="858" y="860" fill="#fff" font-family="Arial,sans-serif" font-size="30" font-weight="600">Quiet mornings in the Nilgiris</text>
+  </g>
+
+  <rect x="5" y="5" width="1590" height="890" rx="32" stroke="#e1f4f4" stroke-opacity=".22" stroke-width="2"/>
+  <path d="M800 18v864M18 450h1564" stroke="#e1f4f4" stroke-opacity=".3" stroke-width="3"/>
+</svg>

@@ -1,0 +1,41 @@
+<section class="forecast card" aria-live="polite" [attr.aria-busy]="loading">
+  <h2>5-day forecast</h2>
+  <div class="forecast-skeleton" *ngIf="loading" aria-label="Loading forecast">
+    <span class="skeleton" *ngFor="let item of [1, 2, 3, 4, 5]"></span>
+  </div>
+  <p *ngIf="error" class="error" role="alert">{{ error }}</p>
+
+  <section class="hourly-forecast" *ngIf="hourly.length && !loading" aria-label="Hourly forecast">
+    <div class="hourly-heading">
+      <h3>Hourly forecast</h3>
+      <span>Provider updates every 3 hours</span>
+    </div>
+    <div class="hourly-list">
+      <article class="hourly-item" *ngFor="let hour of hourly">
+        <time>{{ formatHour(hour) }}</time>
+        <img [src]="'https://openweathermap.org/img/wn/' + hour.icon + '.png'" [alt]="hour.condition || hour.description" />
+        <strong>{{ hour.temp | number: '1.0-0' }}°C</strong>
+        <p *ngIf="hour.rainProbability !== undefined">
+          Rain chance {{ hour.rainProbability | percent: '1.0-0' }}
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <div class="chart" *ngIf="days.length && !loading">
+    <canvas baseChart [data]="chartData" [options]="chartOptions" type="line" aria-label="Temperature trend"></canvas>
+  </div>
+
+  <div class="forecast-list" *ngIf="days.length && !loading">
+    <article class="forecast-day" *ngFor="let day of days">
+      <h3>{{ formatDayDate(day.localDate) }}</h3>
+      <img [src]="'https://openweathermap.org/img/wn/' + day.icon + '@2x.png'" [alt]="day.condition || day.description" />
+      <p class="condition">{{ day.condition || (day.description | titlecase) }}</p>
+      <div class="temperature-range">
+        <span>High <strong>{{ day.tempMax | number: '1.0-0' }}°C</strong></span>
+        <span>Low <strong>{{ day.tempMin | number: '1.0-0' }}°C</strong></span>
+      </div>
+      <p class="description">{{ day.description | titlecase }}</p>
+    </article>
+  </div>
+</section>

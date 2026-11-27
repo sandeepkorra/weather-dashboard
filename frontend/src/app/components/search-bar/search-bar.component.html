@@ -1,0 +1,11 @@
+<form class="search-bar" (ngSubmit)="onSubmit()">
+  <label for="city">Search by city or Indian PIN code</label>
+  <div class="search-controls">
+    <input id="city" name="city" type="search" [(ngModel)]="city" placeholder="Visakhapatnam, Vizag, Paderu, or 530001" autocomplete="off" />
+    <button type="submit">Search</button>
+    <button type="button" (click)="useCurrentLocation()" [disabled]="locating">
+      {{ locating ? 'Locating...' : 'Use My Current Location' }}
+    </button>
+  </div>
+  <p *ngIf="locationError" class="error" role="alert">{{ locationError }}</p>
+</form>

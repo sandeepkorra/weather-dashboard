@@ -1,0 +1,110 @@
+<main class="home-page">
+  <header class="home-topbar">
+    <a class="brand" routerLink="/" aria-label="Weather Explorer home">
+      <span class="brand-mark" aria-hidden="true">◉</span>
+      <span>Weather<span class="brand-accent">Explorer</span></span>
+    </a>
+
+    <nav class="home-nav" aria-label="Main navigation">
+      <a routerLink="/" aria-current="page">Home</a>
+      <a routerLink="/dashboard" fragment="weather">Search</a>
+      <a routerLink="/dashboard" fragment="favorites">Favourites</a>
+      <a routerLink="/dashboard" fragment="history">History</a>
+    </nav>
+
+    <div class="account-actions">
+      <ng-container *ngIf="signedIn; else guestActions">
+        <a class="account-link" routerLink="/dashboard">My weather</a>
+        <button type="button" class="logout-button" (click)="logout()">Logout</button>
+      </ng-container>
+      <ng-template #guestActions>
+        <a class="account-link" routerLink="/login">Sign in</a>
+        <a class="account-button" routerLink="/register">Get started</a>
+      </ng-template>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-sky" aria-hidden="true">
+      <span class="hero-sun"></span>
+      <span class="hero-cloud hero-cloud-one"></span>
+      <span class="hero-cloud hero-cloud-two"></span>
+    </div>
+
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> A CLEARER WAY TO LOOK OUTSIDE</p>
+      <h1>Weather,<br />with a little<br /><span>more sky.</span></h1>
+      <p class="hero-description">
+        Search the places that matter, save your favourites, and stay one step ahead of the forecast.
+      </p>
+      <div class="hero-actions">
+        <a class="primary-action" routerLink="/dashboard">
+          Explore a city <span aria-hidden="true">→</span>
+        </a>
+        <a class="text-action" *ngIf="!signedIn" routerLink="/register">
+          Create your free account <span aria-hidden="true">+</span>
+        </a>
+      </div>
+    </div>
+
+    <aside class="featured-weather" aria-live="polite" [attr.aria-busy]="loading">
+      <div class="featured-heading">
+        <p>FEATURED SIGNAL</p>
+        <span class="signal-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+
+      <div *ngIf="loading" class="weather-loading" role="status">
+        Fetching current conditions for Visakhapatnam…
+      </div>
+
+      <ng-container *ngIf="weather as currentWeather">
+        <div class="featured-location">
+          <span class="location-mark" aria-hidden="true">⌖</span>
+          <div>
+            <h2>{{ currentWeather.city }}</h2>
+            <p>{{ currentWeather.state || 'India' }}, {{ currentWeather.countryName || currentWeather.country }}</p>
+          </div>
+        </div>
+
+        <div class="featured-summary">
+          <img
+            [src]="'https://openweathermap.org/img/wn/' + currentWeather.icon + '@2x.png'"
+            [alt]="currentWeather.description" />
+          <p class="featured-temperature">{{ currentWeather.temp | number: '1.0-0' }}<span>°C</span></p>
+          <div class="featured-condition">
+            <strong>{{ currentWeather.condition || (currentWeather.description | titlecase) }}</strong>
+            <span>Feels like {{ currentWeather.feelsLike | number: '1.0-0' }}°</span>
+          </div>
+        </div>
+
+        <div class="featured-metrics">
+          <div><span>Humidity</span><strong>{{ currentWeather.humidity }}%</strong></div>
+          <div><span>Wind</span><strong>{{ currentWeather.windSpeed | number: '1.0-0' }} km/h</strong></div>
+          <div *ngIf="currentWeather.visibility !== undefined">
+            <span>Visibility</span><strong>{{ currentWeather.visibility | number: '1.0-0' }} km</strong>
+          </div>
+        </div>
+        <p class="featured-updated">UPDATED {{ formatWeatherTime(currentWeather.updatedAt) }} LOCAL TIME</p>
+      </ng-container>
+
+      <p *ngIf="weatherError" class="weather-error" role="status">
+        {{ weatherError }} Try the city search once the weather service is configured.
+      </p>
+    </aside>
+  </section>
+
+  <section class="home-highlights" aria-label="Weather Explorer features">
+    <article>
+      <span>01</span>
+      <div><h2>Forecast intelligence</h2><p>Current conditions, made simple.</p></div>
+    </article>
+    <article>
+      <span>02</span>
+      <div><h2>Your places</h2><p>Keep every horizon within reach.</p></div>
+    </article>
+    <article>
+      <span>03</span>
+      <div><h2>Quietly useful</h2><p>The signal without the noise.</p></div>
+    </article>
+  </section>
+</main>

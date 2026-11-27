@@ -1,0 +1,39 @@
+<section class="weather-card" aria-live="polite" [attr.aria-busy]="loading">
+  <div class="weather-skeleton" *ngIf="loading" aria-label="Loading current weather">
+    <span class="skeleton skeleton-location"></span>
+    <span class="skeleton skeleton-temperature"></span>
+    <span class="skeleton skeleton-line"></span>
+    <div class="skeleton-details"><span class="skeleton"></span><span class="skeleton"></span><span class="skeleton"></span></div>
+  </div>
+  <p *ngIf="error" class="error" role="alert">{{ error }}</p>
+
+  <ng-container *ngIf="weather && !loading">
+    <p class="location">{{ weather.city }}</p>
+    <p class="location-meta">
+      <span *ngIf="weather.district">District: {{ weather.district }}</span>
+      <span *ngIf="weather.state">State: {{ weather.state }}</span>
+      <span>Country: {{ weather.countryName || weather.country || '—' }}</span>
+      <span *ngIf="weather.postcode">PIN code: {{ weather.postcode }}</span>
+    </p>
+    <div class="weather-summary">
+      <img [src]="'https://openweathermap.org/img/wn/' + weather.icon + '@2x.png'" [alt]="weather.description" />
+      <div>
+        <p class="temperature">{{ weather.temp | number: '1.0-0' }}°C</p>
+        <p class="condition">{{ weather.condition || (weather.description | titlecase) }}</p>
+        <p class="description">{{ weather.description | titlecase }}</p>
+      </div>
+    </div>
+    <p class="feels-like">Feels like {{ weather.feelsLike | number: '1.0-0' }}°C</p>
+    <dl class="weather-details">
+      <div><dt>Humidity</dt><dd>{{ weather.humidity }}%</dd></div>
+      <div><dt>Wind speed</dt><dd>{{ weather.windSpeed | number: '1.0-1' }} km/h</dd></div>
+      <div *ngIf="weather.visibility !== undefined">
+        <dt>Visibility</dt><dd>{{ weather.visibility | number: '1.0-1' }} km</dd>
+      </div>
+      <div><dt>Pressure</dt><dd>{{ weather.pressure ?? '—' }} hPa</dd></div>
+      <div><dt>Sunrise</dt><dd>{{ formatWeatherTime(weather.sunrise) }}</dd></div>
+      <div><dt>Sunset</dt><dd>{{ formatWeatherTime(weather.sunset) }}</dd></div>
+    </dl>
+    <p class="updated">Last updated {{ formatWeatherDateTime(weather.updatedAt) }} local time</p>
+  </ng-container>
+</section>

@@ -1,0 +1,22 @@
+.favorites { padding: clamp(1.1rem, 2.7vw, 1.65rem); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(17, 38, 63, 0.78), rgba(7, 19, 36, 0.8)); backdrop-filter: blur(20px); box-shadow: var(--shadow-card); }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.history-actions { display: flex; align-items: center; gap: 0.6rem; }
+.history-actions button { border: 1px solid rgba(157, 190, 225, 0.14); border-radius: 0.65rem; padding: 0.35rem 0.6rem; color: #b9c9d8; background: rgba(21, 39, 59, 0.74); cursor: pointer; font-size: 0.72rem; }
+.history-actions button:hover:not(:disabled) { border-color: rgba(255, 140, 157, 0.42); color: #ff9aab; }
+.history-actions button:disabled { cursor: wait; opacity: 0.65; }
+.section-heading h2 { margin: 0; color: #e5f1fc; font-size: 1.08rem; letter-spacing: -0.025em; }
+.section-heading span { min-width: 1.7rem; padding: 0.2rem 0.5rem; border: 1px solid rgba(85, 232, 242, 0.15); border-radius: 999px; color: var(--color-accent); background: rgba(85, 232, 242, 0.08); font-size: 0.75rem; text-align: center; }
+.favorite-list { display: grid; gap: 0.55rem; padding: 0; margin: var(--space-4) 0 0; list-style: none; }
+.favorite-list li { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 3.2rem; padding: 0.7rem 0.85rem; border: 1px solid rgba(157, 190, 225, 0.08); border-radius: 0.85rem; background: rgba(4, 15, 29, 0.35); transition: border-color 180ms ease, background 180ms ease; }
+.favorite-list li:hover { border-color: rgba(85, 232, 242, 0.2); background: rgba(20, 48, 72, 0.52); }
+.favorite-list small { color: var(--color-muted); }
+.favorite-list button { cursor: pointer; }
+.favorite-list .city-link { border: 0; padding: 0; color: #d9edf9; background: transparent; text-align: left; font-weight: 600; }
+.favorite-list .city-link:hover { color: var(--color-accent); }
+.favorite-list li > button:not(.city-link) { border: 1px solid rgba(157, 190, 225, 0.14); border-radius: 0.65rem; padding: 0.4rem 0.65rem; color: #b9c9d8; background: rgba(21, 39, 59, 0.74); font-size: 0.77rem; transition: color 180ms ease, border-color 180ms ease; }
+.favorite-list li > button:not(.city-link):hover { border-color: rgba(255, 140, 157, 0.42); color: #ff9aab; }
+.favorite-list time { color: #8297ad; font-size: 0.74rem; white-space: nowrap; }
+.history-heading { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid rgba(157, 190, 225, 0.1); }
+.error { color: var(--color-danger); }
+.success { color: var(--color-success); }
+.empty { color: var(--color-muted); font-size: 0.9rem; }

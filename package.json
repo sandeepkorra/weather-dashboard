@@ -1,0 +1,16 @@
+{
+  "name": "weather-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n backend,frontend \"npm run server:dev\" \"npm run client\"",
+    "server": "npm --prefix backend start",
+    "server:dev": "npm --prefix backend run dev",
+    "client": "npm --prefix frontend start",
+    "client:build": "npm --prefix frontend run build",
+    "test:server": "npm --prefix backend test"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
